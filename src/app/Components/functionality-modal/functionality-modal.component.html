@@ -1,0 +1,56 @@
+<div class="modal modal-overlay">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Functionality Details</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" [(ngModel)]="functionality.title">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" [(ngModel)]="functionality.description"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Priority</label>
+        <select id="priority" class="form-control status-dropdown" [(ngModel)]="functionality.priority" name="priority">
+          <option *ngFor="let option of priorityOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" class="form-control status-dropdown" [(ngModel)]="functionality.status" name="status">
+          <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div>
+        <label>Project:</label>
+        <select class="form-control status-dropdown" [(ngModel)]="functionality.project_id">
+          <option [value]="currentProject.id"> {{ currentProject.name }}</option>
+        </select>
+      </div>
+      <div>
+        <label>Assigned to:</label>
+        <select class="form-control status-dropdown" [(ngModel)]="functionality.assigned_to">
+          <option [value]="currentUser.id">
+            {{ currentUser.FirstName }}{{ currentUser.LastName }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label>Tasks:</label>
+        <ul>
+          <li *ngFor="let task of filteredTasks">
+            {{ task.title }}
+          </li>
+        </ul>
+      </div>      
+    </div>
+    
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="onCloseClick()">Close</button>
+      <button type="button" class="btn btn-primary" (click)="onSaveClick()">Save</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<app-add-functionality-modal (addFunctionality)="onAddFunctionality($event)"></app-add-functionality-modal>
+<div>
+  <div class="container">
+    <div class="col-md-4" *ngFor="let item of functionalities">
+      <div *ngIf="item.status == 'todo'">
+        <app-functionality-card [id]="item.id" [title]="item.title" [status]="item.status" backgroundColor="#ddd" [assignedTo]="checkUser(item.id)" (deleteFunctionality)="deleteFunctionality($event)" (click)="openFunctionalityModal(item)"></app-functionality-card>
+      </div>
+    </div>
+    <div class="col-md-4" *ngFor="let item of functionalities">
+      <div *ngIf="item.status == 'doing'">
+        <app-functionality-card [id]="item.id" [title]="item.title" [status]="item.status" backgroundColor="blue" [assignedTo]="checkUser(item.id)" (deleteFunctionality)="deleteFunctionality($event)" (click)="openFunctionalityModal(item)"></app-functionality-card>
+      </div>
+    </div>
+    <div class="col-md-4" *ngFor="let item of functionalities">
+      <div *ngIf="item.status == 'done'">
+        <app-functionality-card [id]="item.id" [title]="item.title" [status]="item.status" backgroundColor="green" [assignedTo]="checkUser(item.id)" (deleteFunctionality)="deleteFunctionality($event)" (click)="openFunctionalityModal(item)"></app-functionality-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-functionality-modal *ngIf="selectedFunctionality" [functionalityId]="selectedFunctionality.id" (closeFunctionalityModal)="closeFunctionalityModal()" (saveFunctionality)="onSaveFunctionality($event)"></app-functionality-modal>

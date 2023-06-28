@@ -1,0 +1,51 @@
+<button (click)="openAddFunctionalityModal()">Add</button>
+
+<div class="modal modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Add Functionality</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" [(ngModel)]="newFunctionality.title">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" [(ngModel)]="newFunctionality.description"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Priority</label>
+        <select id="priority" class="form-control status-dropdown" [(ngModel)]="newFunctionality.priority" name="priority">
+          <option *ngFor="let option of priorityOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select id="status" class="form-control status-dropdown" [(ngModel)]="newFunctionality.status" name="status">
+          <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="project">Project:</label>
+        <select id="project" class="form-control status-dropdown" [(ngModel)]="newFunctionality.project_id" name="project">
+          <option [value]="currentProject.id">
+            {{ currentProject.name }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label>Assigned to:</label>
+        <select class="form-control status-dropdown" [(ngModel)]="newFunctionality.assigned_to">
+          <option [value]="currentUser.id">
+            {{ currentUser.FirstName }}{{ currentUser.LastName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="onCloseClick()">Close</button>
+      <button type="submit" class="btn btn-primary" (click)="onSaveClick()">Save</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.ticket-header {
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.assignee-section {
+  display: flex;
+  align-items: center;
+}
+
+.assignee-picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.assignee-name {
+  margin-left: 10px;
+}

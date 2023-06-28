@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <div class="ticket-header">
+      <h5 class="card-title">{{title}}</h5>
+    </div>
+    <div class="ticket-footer">
+      <div class="status-badge" [style.backgroundColor]="backgroundColor">
+        {{status}}
+      </div>
+      <div>{{ getFunctionalityTitle() }}</div>
+      <div class="assignee-section">
+        <img class="assignee-picture" src="../../assets/user.png" alt="Assignee Picture">
+        <div class="assignee-name">{{assignedTo}}</div>
+      </div>
+      <button (click)="onDeleteClick()">Delete</button>
+    </div>
+  </div>
+</div>

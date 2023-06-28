@@ -1,0 +1,31 @@
+<app-add-task-modal (addTask)="onAddTask($event)"></app-add-task-modal>
+<div>
+    <div class="container">
+        <div class="column">
+            <h3>TODO</h3>
+            <div class="col-md-4" *ngFor="let item of tasks">
+                <div *ngIf="item.status == 'todo'">
+                    <app-task-card [id]="item.id" [title]="item.title" [status]="item.status" [functionality_id]="item.functionality_id" [assignedTo]="checkUser(item.id)" backgroundColor="#ddd" (deleteTask)="deleteTask($event)" (click)="openTaskModal(item)"></app-task-card>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h3>DOING</h3>
+            <div class="col-md-4" *ngFor="let item of tasks">
+                <div *ngIf="item.status == 'doing'">
+                    <app-task-card [id]="item.id" [title]="item.title" [status]="item.status" [functionality_id]="item.functionality_id" [assignedTo]="checkUser(item.id)" backgroundColor="blue" (deleteTask)="deleteTask($event)" (click)="openTaskModal(item)"></app-task-card>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h3>DONE</h3>
+            <div class="col-md-4" *ngFor="let item of tasks">
+                <div *ngIf="item.status == 'done'">
+                    <app-task-card [id]="item.id" [title]="item.title" [status]="item.status" [functionality_id]="item.functionality_id" [assignedTo]="checkUser(item.id)" backgroundColor="green" (deleteTask)="deleteTask($event)" (click)="openTaskModal(item)"></app-task-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-task-modal *ngIf="selectedTask" [taskId]="selectedTask.id" (closeTaskModal)="closeTaskModal()" (saveTask)="onSaveTask($event)"></app-task-modal>
