@@ -23,3 +23,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 - User can see the Kanban board with all task, diversed by status
 - User can see the Functionality board with all functionalities
 - User can see the Tasks board with all tasks
+- User can Login and Logout

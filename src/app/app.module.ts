@@ -16,6 +16,7 @@ import { FunctionalityCardComponent } from './Components/functionality-card/func
 import { FunctionalityModalComponent } from './Components/functionality-modal/functionality-modal.component';
 import { AddTaskModalComponent } from './Components/add-task-modal/add-task-modal.component';
 import { AddFunctionalityModalComponent } from './Components/add-functionality-modal/add-functionality-modal.component';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AddFunctionalityModalComponent } from './Components/add-functionality-m
     FunctionalityModalComponent,
     AddTaskModalComponent,
     AddFunctionalityModalComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
